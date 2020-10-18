@@ -2,6 +2,6 @@
 ___
 ## here we are working on setting up the server
 
-ссылка на проектную работу [жмяк](https://rashidov.students.nomoreparties.co/)
+ссылка на проектную работу [link](https://rashidov.students.nomoreparties.co/)
 
 публичный api 178.154.226.254
