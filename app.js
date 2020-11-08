@@ -6,40 +6,32 @@ const cookieParser = require('cookie-parser');
 const helmet = require('helmet');
 const rateLimit = require('express-rate-limit');
 const { errors } = require('celebrate');
+// НАСТРОИТЬ КОРС!!!
 const cors = require('cors');
 const { userRouter, articlesRouter } = require('./routes');
-
-const { PORT = 8081 } = process.env;
-const app = express();
-
 const auth = require('./middlewares/auth');
 const { validateUser, validateLogin } = require('./middlewares/validator');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
 const { createUser, login } = require('./controllers/user');
 const NotFoundError = require('./errors/NotFoundError');
-// require('dotenv').config();
+require('dotenv').config();
 
+const { PORT = 3000 } = process.env;
+
+const app = express();
 app.use(cors({ origin: true }));
-// const corsOptions = {
-//   origin: [
-//     'http://localhost:3000',
-//     'https://localhost:3000',
-//     'https://rashidovD.github.io/news-explorer-frontend/',
-//   ],
-//   credentials: true,
-// };
 
 app.use(helmet());
-app.use(cookieParser());
-// app.use(cors(corsOptions));
 // app.use(cors({
 //   origin: [
 //     'http://localhost:3000',
 //     'https://localhost:3000',
+//     // проверить / Пока не настроено!!!
 //     'https://rashidovD.github.io/news-explorer-frontend/',
 //   ],
 //   credentials: true,
 // }));
+app.use(cookieParser());
 
 const limiter = rateLimit({
   windowMs: 15 * 60 * 1000,
