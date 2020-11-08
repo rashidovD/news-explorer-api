@@ -7,7 +7,7 @@ const helmet = require('helmet');
 const rateLimit = require('express-rate-limit');
 const { errors } = require('celebrate');
 // НАСТРОИТЬ КОРС!!!
-const cors = require('cors');
+// const cors = require('cors');
 const { userRouter, articlesRouter } = require('./routes');
 const auth = require('./middlewares/auth');
 const { validateUser, validateLogin } = require('./middlewares/validator');
