@@ -20,7 +20,7 @@ require('dotenv').config();
 const { PORT = 3000 } = process.env;
 
 const app = express();
-// app.use(cors({ origin: true }));
+app.use(cors({ origin: true }));
 
 app.use(helmet());
 // app.use(cors({
