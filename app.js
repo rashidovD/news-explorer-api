@@ -6,7 +6,7 @@ const cookieParser = require('cookie-parser');
 const helmet = require('helmet');
 const rateLimit = require('express-rate-limit');
 const { errors } = require('celebrate');
-// const cors = require('cors');
+const cors = require('cors');
 const { userRouter, articlesRouter } = require('./routes');
 const auth = require('./middlewares/auth');
 const { validateUser, validateLogin } = require('./middlewares/validator');
@@ -21,6 +21,7 @@ const app = express();
 
 app.use(helmet());
 app.use(cookieParser());
+app.use(cors({ origin: true }));
 // app.use(cors({
 //   origin: [
 //     'http://localhost:3000',
