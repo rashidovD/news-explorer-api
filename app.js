@@ -7,7 +7,7 @@ const helmet = require('helmet');
 const rateLimit = require('express-rate-limit');
 const { errors } = require('celebrate');
 // НАСТРОИТЬ КОРС!!!
-// const cors = require('cors');
+const cors = require('cors');
 const { userRouter, articlesRouter } = require('./routes');
 const auth = require('./middlewares/auth');
 const { validateUser, validateLogin } = require('./middlewares/validator');
@@ -21,14 +21,14 @@ const { PORT = 3000 } = process.env;
 const app = express();
 
 app.use(helmet());
-// app.use(cors({
-//   origin: [
-//     'http://localhost:3000',
-//     'https://localhost:3000',
-//     'https://rashidovD.github.io/news-explorer-frontend/',
-//   ],
-//   credentials: true,
-// }));
+app.use(cors({
+  origin: [
+    'http://localhost:3000',
+    'https://localhost:3000',
+    'https://rashidovD.github.io/news-explorer-frontend/',
+  ],
+  credentials: true,
+}));
 app.use(cookieParser());
 
 const limiter = rateLimit({
