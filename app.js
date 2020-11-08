@@ -18,10 +18,18 @@ require('dotenv').config();
 const { PORT = 3000 } = process.env;
 
 const app = express();
+const corsOptions = {
+  origin: [
+    'http://localhost:3000',
+    'https://localhost:3000',
+    'https://rashidovD.github.io/news-explorer-frontend/',
+  ],
+  credentials: true,
+};
 
 app.use(helmet());
 app.use(cookieParser());
-app.use(cors({ origin: true }));
+app.use(cors(corsOptions));
 // app.use(cors({
 //   origin: [
 //     'http://localhost:3000',
