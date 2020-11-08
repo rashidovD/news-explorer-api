@@ -1,5 +1,4 @@
 require('dotenv').config();
-const cors = require('cors');
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
@@ -20,14 +19,12 @@ require('dotenv').config();
 const { PORT = 3000 } = process.env;
 
 const app = express();
-app.use(cors({ origin: true }));
 
 app.use(helmet());
 // app.use(cors({
 //   origin: [
 //     'http://localhost:3000',
 //     'https://localhost:3000',
-//     // проверить / Пока не настроено!!!
 //     'https://rashidovD.github.io/news-explorer-frontend/',
 //   ],
 //   credentials: true,
