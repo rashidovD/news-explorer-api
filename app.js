@@ -9,7 +9,7 @@ const { errors } = require('celebrate');
 const cors = require('cors');
 const { userRouter, articlesRouter } = require('./routes');
 
-const { PORT = 3000 } = process.env;
+const { PORT = 8081 } = process.env;
 const app = express();
 
 const auth = require('./middlewares/auth');
