@@ -25,7 +25,6 @@ app.use(limiter);
 app.use(helmet());
 app.use(bodyParser.json());
 app.use(cookieParser());
-app.use(requestLogger);
 app.use(cors({
   origin: [
     'http://localhost:3000/',
@@ -33,6 +32,7 @@ app.use(cors({
   ],
   credentials: true,
 }));
+app.use(requestLogger);
 app.use(routes);
 app.use(errorLogger);
 app.use(errors());
