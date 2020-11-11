@@ -29,7 +29,7 @@ app.use(cors({
   origin: [
     'http://localhost:3000/',
     'https://rashidovD.github.io/news-explorer-frontend/',
-    'https://rashidovd.github.io/',
+    'https://rashidovd.github.io',
   ],
   credentials: true,
 }));
