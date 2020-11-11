@@ -1,17 +1,22 @@
 const Article = require('../models/article');
 const BadRequestError = require('../errors/BadRequestError');
-const ServerError = require('../errors/ServerError');
 const NotFoundError = require('../errors/NotFoundError');
 const ForbiddenError = require('../errors/ForbiddenError');
 
 const getArticles = (req, res, next) => {
-  Article.find({})
-    .populate('user')
-    .then((articles) => res.status(200).send({ data: articles }))
-    .catch((err) => {
-      throw new ServerError({ message: `Ошибка на сервере: ${err.message}` });
+  Article.find({ owner: req.user._id })
+    .then((article) => {
+      if (article.length === 0) {
+        throw new NotFoundError('Статьи не найдены');
+      }
+      res.send({ data: article });
     })
-    .catch(next);
+    .catch((err) => {
+      if (err.kind === 'ObjectId') {
+        next(new BadRequestError('Неверный ID юзера'));
+      }
+      next(err);
+    });
 };
 
 const createArticle = (req, res, next) => {
@@ -22,29 +27,32 @@ const createArticle = (req, res, next) => {
   Article.create({
     keyword, title, text, date, source, link, image, owner: req.user._id,
   })
-    .catch((err) => {
-      throw new BadRequestError({ message: `Неверные данные: ${err.message}` });
-    })
     .then((article) => res.status(201).send({ data: article }))
-    .catch(next);
+    .catch((err) => {
+      if (err.name === 'ValidationError') {
+        next(new BadRequestError(err.message));
+      }
+      next(err);
+    });
 };
 
 const deleteArticle = (req, res, next) => {
-  Article.findById(req.params._id)
-    .select('+owner')
-    .orFail()
-    .catch(() => {
-      throw new NotFoundError({ message: 'Не найдено с таким ID' });
-    })
+  Article.findById(req.params.articleId).select('+owner')
     .then((article) => {
-      if (article.owner.toString() !== req.user._id) {
-        throw new ForbiddenError({ message: 'У вас недостаточно прав' });
+      if (!article) {
+        throw new NotFoundError('Статья не найдена');
+      } else if (article.owner.toString() !== req.user._id) {
+        throw new ForbiddenError('У вас недостаточно прав');
+      } else {
+        Article.findByIdAndRemove(req.params.articleId)
+          .then((result) => {
+            if (!result) {
+              throw new NotFoundError('Статья не найдена');
+            }
+            res.send({ data: result });
+          })
+          .catch(next);
       }
-      Article.findByIdAndDelete(req.params._id)
-        .then((articleData) => {
-          res.send({ data: articleData });
-        })
-        .catch(next);
     })
     .catch(next);
 };

@@ -1,11 +1,9 @@
-const express = require('express');
-const { validateID, validateArticle } = require('../middlewares/validator');
+const router = require('express').Router();
+const { validateArticleId, validateArticleBody } = require('../middlewares/validator');
 const { getArticles, createArticle, deleteArticle } = require('../controllers/articles');
 
-const articlesRouter = express.Router();
+router.get('/', getArticles);
+router.post('/', validateArticleBody, createArticle);
+router.delete('/:articleId', validateArticleId, deleteArticle);
 
-articlesRouter.get('/', getArticles);
-articlesRouter.post('/', validateArticle, createArticle);
-articlesRouter.delete('/:_id', validateID, deleteArticle);
-
-module.exports = articlesRouter;
+module.exports = router;

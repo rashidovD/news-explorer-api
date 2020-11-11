@@ -6,24 +6,24 @@ const UnauthError = require('../errors/UnauthError');
 const userSchema = new mongoose.Schema({
   email: {
     type: String,
-    required: true,
-    unique: true,
+    required: [true, 'Заполните поле "email"'],
+    unique: [true, 'Введите уникальный "email"'],
     validate: {
       validator(email) {
         return validator.isEmail(email);
       },
-      message: 'Incorrect email',
+      message: 'Некорректный email',
     },
   },
   password: {
     type: String,
-    required: true,
-    minlength: 8,
+    required: [true, 'Заполните поле "password"'],
+    // minlength: 8,
     select: false,
   },
   name: {
     type: String,
-    required: true,
+    required: [true, 'Заполните поле "name"'],
     minlength: 2,
     maxlength: 30,
   },
@@ -33,12 +33,12 @@ userSchema.statics.findUserByCredentials = function (email, password) {
   return this.findOne({ email }).select('+password')
     .then((user) => {
       if (!user) {
-        throw new UnauthError({ message: 'Invalid email or password' });
+        throw new UnauthError({ message: 'Неверные email или password' });
       }
       return bcrypt.compare(password, user.password)
         .then((matched) => {
           if (!matched) {
-            throw new UnauthError({ message: 'Invalid email or password' });
+            throw new UnauthError({ message: 'Неверные email или password' });
           }
           return user;
         });
