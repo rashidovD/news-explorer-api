@@ -29,6 +29,7 @@ app.use(cors({
   origin: [
     'http://localhost:3000',
     'http://rashfront.students.nomoreparties.co',
+    'https://rashfront.students.nomoreparties.co',
     'http://localhost:3001',
     'http://localhost:3005',
     'https://rashidovD.github.io/news-explorer-frontend',
