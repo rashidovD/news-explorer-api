@@ -1,14 +1,17 @@
 # news-explorer-api / REST API
 ___
-## <i>`Backend`</i> часть со стеком
-1. **MongoDB**
-2. **Express**
-3. **NodeJS**
-___
-### Запуск проекта локально
+## <i>`Backend NewsExplorer`</i>
 
-| **1. Клонировать репозиторий** |
+| Стек технологий   |
+| -------------  |
+|  NodeJS    |
+|  MongoDB    |
+|  Express |
+___
+### Начать
+| Локально |
 | :-------------  |
+| **1. Клонировать репозиторий** |
 | `git clone https://github.com/rashidovD/news-explorer-api.git ` |
 | **2. Установить зависимости** |
 | `npm install` |
@@ -16,9 +19,12 @@ ___
 | `npm run start` или `npm run dev` |
 | **4. Порт на котором запускается проект** |
 | [http://localhost:3000/](http://localhost:3000/) |
-| **5. Публичный IP-адрес** |
+
+|Удаленно|
+|:-------------|
+| **1. Публичный IP-адрес** |
 | [178.154.226.254](http://178.154.226.254/) |
-| **6. Домен** |
+| **2. Домен** |
 | [api.rashidov.students.nomoreparties.co](https://api.rashidov.students.nomoreparties.co/) |
 
 ___
