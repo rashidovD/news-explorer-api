@@ -21,29 +21,13 @@ ___
 [api.rashidov.students.nomoreparties.co](https://api.rashidov.students.nomoreparties.co/)
 ___
 #### Запросы
- `method` `http://localhost:3000/endpoint `
 
-* **Регистрация**<br>
-`POST` `http://localhost:3000/signup`
-* **Авторизация**<br>
-`POST` `http://localhost:3000/signin`
-* **Инфо о юзере**<br>
-`GET` `http://localhost:3000/users/me`
-* **Добавить статью**<br>
-`POST` `http://localhost:3000/articles`
-* **Удалить статью**<br>
-`DELETE` `http://localhost:3000/articles/:id`
-* **Получить все статьи пользователя**<br>
-`GET` `http://localhost:3000/articles`
-
-
-___
-| Функция  | Center Aligned  | Right Aligned |
-|:------------- |:---------------:| -------------:|
-| Регистрация      | some wordy text |     **$1600** |
-| Авторизация      | centered        |         $12   |
-| Инфо о юзере | are neat        |        ~~$1~~ |
-| Добавить статью | are neat        |        ~~$1~~ |
-| Удалить статью | are neat        |        ~~$1~~ |
-| Получить все статьи пользователя | are neat        |        ~~$1~~ |
+| Функция / Действие  | Метод  | Эндпоинт |
+|:------------- |:---------------| :-------------|
+| Регистрация      | POST |     http://localhost:3000/signup |
+| Авторизация      | POST        |         http://localhost:3000/signin   |
+| Инфо о юзере | GET        |        http://localhost:3000/users/me |
+| Добавить статью | POST        |        http://localhost:3000/articles |
+| Удалить статью | DELETE        |        http://localhost:3000/articles/:id |
+| Получить все статьи  | GET        |        http://localhost:3000/articles |
 ___
