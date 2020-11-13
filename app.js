@@ -32,8 +32,6 @@ app.use(cors({
     'https://rashfront.students.nomoreparties.co',
     'https://rashidov.students.nomoreparties.co',
     'http://rashidov.students.nomoreparties.co',
-    'https://rashidovD.github.io/news-explorer-frontend',
-    'https://rashidovd.github.io',
   ],
   credentials: true,
 }));
