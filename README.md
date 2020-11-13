@@ -17,8 +17,7 @@ ___
 [http://localhost:3000/](http://localhost:3000/)
 * Публичный IP-адрес:<br>
 [178.154.226.254](http://178.154.226.254/)
-___
-#### Домен
+* Домен:<br>
 [api.rashidov.students.nomoreparties.co](https://api.rashidov.students.nomoreparties.co/)
 ___
 #### Запросы
@@ -36,3 +35,15 @@ ___
 `DELETE` `http://localhost:3000/articles/:id`
 * **Получить все статьи пользователя**<br>
 `GET` `http://localhost:3000/articles`
+
+
+___
+| Функция  | Center Aligned  | Right Aligned |
+|:------------- |:---------------:| -------------:|
+| Регистрация      | some wordy text |     **$1600** |
+| Авторизация      | centered        |         $12   |
+| Инфо о юзере | are neat        |        ~~$1~~ |
+| Добавить статью | are neat        |        ~~$1~~ |
+| Удалить статью | are neat        |        ~~$1~~ |
+| Получить все статьи пользователя | are neat        |        ~~$1~~ |
+___
