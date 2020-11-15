@@ -38,3 +38,5 @@ ___
 | Добавить статью | POST        |        http://localhost:3000/articles |
 | Удалить статью | DELETE        |        http://localhost:3000/articles/:id |
 | Получить все статьи  | GET        |        http://localhost:3000/articles |
+___
+Переход на **frontend** сайта по ссылке: [github.com/rashidovD/news-explorer-frontend](https://github.com/rashidovD/news-explorer-frontend)
