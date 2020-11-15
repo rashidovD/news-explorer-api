@@ -28,8 +28,6 @@ app.use(cookieParser());
 app.use(cors({
   origin: [
     'http://localhost:3000',
-    'http://rashfront.students.nomoreparties.co',
-    'https://rashfront.students.nomoreparties.co',
     'https://rashidov.students.nomoreparties.co',
     'http://rashidov.students.nomoreparties.co',
   ],
